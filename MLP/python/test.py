@@ -5,7 +5,10 @@ from sklearn import datasets
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import roc_auc_score
 
-np.random.seed(41)
+
+# set the seed
+np.random.seed(42)
+
 # get data
 toy = False
 if toy:
