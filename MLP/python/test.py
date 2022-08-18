@@ -3,8 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import roc_auc_score
 
-
+np.random.seed(41)
 # get data
 toy = False
 if toy:
@@ -21,15 +22,13 @@ else:
 if toy:
     cls = mlp(input_size=len(x[0]), layers=[3, 1], learning_rate=0.1, epochs=5000)
 else:
-    cls = mlp(input_size=len(x[0]), layers=[40, 20, 10, 1], learning_rate=0.0001, epochs=10000)
+    cls = mlp(input_size=len(x[0]), layers=[10, 1], learning_rate=0.001, epochs=2000)
 errors = cls.fit(x, y.reshape(-1,1))
 
 # evaluation
 y_pred = cls.predict(x)
-y_pred = np.where(y_pred >= 0.5, 1, 0)
-num_correct_predictions = (y_pred == y).sum()
-accuracy = (num_correct_predictions / y.shape[0]) * 100
-print('Multi-layer perceptron accuracy: %.2f%%' % accuracy)
+auc = roc_auc_score(y, y_pred)
+print('Multi-layer perceptron AUC: %.2f' % auc)
 
 # plot training loss
 plt.plot(errors, label="train")
