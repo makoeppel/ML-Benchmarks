@@ -1,2 +1,2 @@
-# ML-Banchmarks
-ML-Banchmarks in different languages
+# ML-Benchmarks
+ML-Benchmarks in different languages
