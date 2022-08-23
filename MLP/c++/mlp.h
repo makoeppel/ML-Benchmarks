@@ -4,6 +4,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #define MAXCHAR 100
 
@@ -564,5 +565,21 @@ double AUROC(std::vector<double> label, std::vector<double> score, int n) {
     delete[] fp;
 
     return area;
+}
+
+
+void network_save(nn* net, char* file_string) {
+    mkdir(file_string, 0777);
+    // Write the descriptor file
+    chdir(file_string);
+    FILE* descriptor = fopen("descriptor", "w");
+    fprintf(descriptor, "%d\n", net->input);
+    fprintf(descriptor, "%d\n", net->hidden);
+    fprintf(descriptor, "%d\n", net->output);
+    fclose(descriptor);
+    matrix_save(net->hidden_weights, "hidden");
+    matrix_save(net->output_weights, "output");
+    printf("Successfully written to '%s'\n", file_string);
+    chdir("-"); // Go back to the orignal directory
 }
 

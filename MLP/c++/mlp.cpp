@@ -144,6 +144,9 @@ int main(int argc, char* argv[])
     printf("######## Final Pred ########\n");
     std::vector<double> y_pred = network_predict(mlp, &x);
     printf("AUC: %f\n", AUROC(vecmatrix_to_vector(&y), y_pred, y_pred.size()));
+    
+    // save network
+    network_save(mlp, "output");
 
     return 0;
 }
