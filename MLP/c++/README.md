@@ -6,4 +6,4 @@ cmake ..
 
 # Code
 Most code was taken from markkraay [mnist-from-scratch](URL 'https://github.com/markkraay/mnist-from-scratch') and adopted.
-The AUC code was taken from liurui39660 [AUROC]('https://github.com/liurui39660/AUROC/blob/master/include/AUROC.hpp').
+The AUC code was taken from liurui39660 [AUROC](URL 'https://github.com/liurui39660/AUROC/blob/master/include/AUROC.hpp').
