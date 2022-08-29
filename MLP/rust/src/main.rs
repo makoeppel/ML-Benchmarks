@@ -22,7 +22,7 @@ fn xor_example(layer0: &usize, layer1: &usize, layer3: &usize, learning_rate: &f
 
 fn print_usage() {
     println!("Usage: ");
-    println!("       nn <data-path> <layer0> <layer1> <layer2> <learning-rate> <epoch> <seed> <test>");
+    println!("       mlp <data-path> <layer0> <layer1> <layer2> <learning-rate> <epoch> <seed> <test>");
 }
 
 fn main() {
